@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4668043195846164}
   - component: {fileID: 198000349430351668}
   - component: {fileID: 199718367070622102}
+  - component: {fileID: 114255209753314080}
+  - component: {fileID: 114863665885320436}
   m_Layer: 0
   m_Name: ClickingEffect
   m_TagString: Untagged
@@ -41,6 +43,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114255209753314080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1914899681616108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dfbdf3b41734836855c103bcf006e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  TargetTagName: LoveMeterSeeker
+  Speed: 5
+  SpeedOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &114863665885320436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1914899681616108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 698409fa18acf6643b0e2cd1d71948de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Seconds: 3
 --- !u!198 &198000349430351668
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -50,7 +96,7 @@ ParticleSystem:
   serializedVersion: 5
   lengthInSec: 1
   simulationSpeed: 1
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -100,7 +146,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1476401875
+  randomSeed: 1969885558
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -147,9 +193,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 5
+      minMaxState: 3
+      scalar: 3
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -252,7 +298,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -758,21 +804,21 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0.5049505
-          inSlope: 23.341583
-          outSlope: 23.341583
+          value: 0.0799551
+          inSlope: 20.331804
+          outSlope: 20.331804
           tangentMode: 0
         - serializedVersion: 2
-          time: 0.12342307
-          value: 0.7758815
-          inSlope: -4.235341
-          outSlope: -4.235341
+          time: 0.19472107
+          value: 0.57588303
+          inSlope: -2.7773602
+          outSlope: -2.7773602
           tangentMode: 0
         - serializedVersion: 2
           time: 1
-          value: 0.2970297
-          inSlope: -0.047202397
-          outSlope: -0.047202397
+          value: 0.4970381
+          inSlope: -0.12538382
+          outSlope: -0.12538382
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -1013,9 +1059,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.58823526, b: 0.58823526, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 0}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 1, g: 0.33088237, b: 0.787728, a: 0}
+        key1: {r: 1, g: 0.19852942, b: 0.19852942, a: 1}
+        key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1029,17 +1075,17 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 39514
-        atime1: 65535
-        atime2: 0
-        atime3: 0
+        atime0: 0
+        atime1: 9059
+        atime2: 44911
+        atime3: 65535
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3345,8 +3391,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 693670215
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
