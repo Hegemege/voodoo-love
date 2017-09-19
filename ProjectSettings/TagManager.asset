@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Doll
   - DollTarget
+  - DollHead
   layers:
   - Default
   - TransparentFX

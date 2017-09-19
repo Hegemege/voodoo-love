@@ -189,7 +189,7 @@ public class DollController : MonoBehaviour
                 }
             }
 
-            if (!hit.collider || !hit.collider.CompareTag("Doll") || tooClose)
+            if (!hit.collider || (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollHead")) || tooClose)
             {
                 failsafeTries += 1;
                 continue;

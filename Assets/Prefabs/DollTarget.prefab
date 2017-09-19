@@ -114,11 +114,13 @@ MonoBehaviour:
   MaxHealth: 0
   Type: 0
   WoundSprites:
-  - {fileID: 21300000, guid: 16181c967f28da940ada1744282d3e97, type: 3}
+  - {fileID: 21300000, guid: 0a78317034101404b8d969df17967571, type: 3}
   PinSprites:
-  - {fileID: 21300000, guid: 16181c967f28da940ada1744282d3e97, type: 3}
+  - {fileID: 21300000, guid: e0f673b496d2a474b968ca3cb3d1c912, type: 3}
   DirtSprites:
-  - {fileID: 21300000, guid: 16181c967f28da940ada1744282d3e97, type: 3}
+  - {fileID: 21300000, guid: 2d9651d2d950446b1997c5aaf0009989, type: 3}
+  CrackSprites:
+  - {fileID: 21300000, guid: d66aeba6be32545768727c66757159f8, type: 3}
   Healed: 0
 --- !u!212 &212253885804999886
 SpriteRenderer:
