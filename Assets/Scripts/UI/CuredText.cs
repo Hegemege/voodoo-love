@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Slider))]
+[RequireComponent(typeof(Text))]
 public class CuredText : MonoBehaviour
 {
     Text curedText;
