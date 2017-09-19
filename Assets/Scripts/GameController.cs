@@ -11,6 +11,9 @@ public class GameController : MonoBehaviour
     public float Mana;
     public float ManaPerSecond;
 
+    public float HappinessPerSecond;
+    public float HappinessPerTap;
+
     [HideInInspector]
     public DollController CurrentDoll;
 
@@ -37,5 +40,7 @@ public class GameController : MonoBehaviour
     void FixedUpdate()
     {
         if (!CurrentDoll || CurrentDoll.Dead) return;
+
+
     }
 }
