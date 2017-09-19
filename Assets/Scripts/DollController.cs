@@ -10,15 +10,19 @@ public class DollController : MonoBehaviour
     public float Love;
     public float MaxLove;
 
-    [HideInInspector]
-    public bool Dead;
-
     public int DollTargetCount;
-
-    private SpriteRenderer sr;
 
     public GameObject DollTargetContainer;
     public GameObject DollTargetPrefab;
+    
+
+    // [HideInInspector] but easier to debug without
+    [Space(20)]
+    public bool Dead;
+    public bool Finished;
+
+    // Privates
+    private SpriteRenderer sr;
     private List<DollTargetController> dollTargets;
 
     void Awake()
@@ -41,6 +45,39 @@ public class DollController : MonoBehaviour
     }
     
     void Update() 
+    {
+        CheckAllInput();
+        UpdateState();
+    }
+
+    void FixedUpdate()
+    {
+
+    }
+
+    private void UpdateState()
+    {
+        // Updates all game state variables (love etc)
+        if (Dead || Finished) return;
+
+        Love += GameController.instance.LovePerSecond;
+
+        if (Love > MaxLove)
+        {
+            Love = MaxLove;
+            Finished = true;
+            GameController.instance.DollFinished();
+        }
+
+        if (Love < 0f)
+        {
+            Love = 0f;
+            Dead = true;
+            GameController.instance.DollFailed();
+        }
+    }
+
+    private void CheckAllInput()
     {
         // Handle native touch events
         foreach (Touch touch in Input.touches)
@@ -66,23 +103,28 @@ public class DollController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-
-    }
-
     private void HandleTouch(int touchFingerId, Vector3 touchPosition, TouchPhase touchPhase)
     {
+        Vector2 touchCoords = new Vector2(touchPosition.x, touchPosition.y);
         switch (touchPhase)
         {
             case TouchPhase.Began:
-                sr.color = Color.red;
+                //sr.color = Color.red;
+                // Test which target is being hit, if any
+                var hit = Physics2D.Raycast(touchCoords, Vector2.zero);
+                if (hit.collider != null)
+                {
+                    if (!hit.collider.CompareTag("Doll")) break;
+
+                    // TODO: Interaction
+                    Love += GameController.instance.LovePerTap;
+                }
                 break;
             case TouchPhase.Moved:
-                sr.color = Color.yellow;
+                //sr.color = Color.yellow;
                 break;
             case TouchPhase.Ended:
-                sr.color = Color.green;
+                //sr.color = Color.green;
                 break;
         }
     }
