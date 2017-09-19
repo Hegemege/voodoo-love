@@ -111,6 +111,14 @@ public class DollController : MonoBehaviour
         Vector2 touchCoords = new Vector2(touchPosition.x, touchPosition.y);
         var hits = Physics2D.RaycastAll(touchCoords, Vector2.zero);
 
+        if (touchPhase == TouchPhase.Ended)
+        {
+            foreach (var target in dollTargets)
+            {
+                Love += target.Release();
+            }
+        }
+
         foreach (var hit in hits)
         {
             switch (touchPhase)
@@ -149,17 +157,6 @@ public class DollController : MonoBehaviour
                         {
                             // Tap anywhere to gain some love
                             Love += GameController.instance.LovePerSecond * Time.deltaTime * GameController.instance.TapHealthyFactor;
-                        }
-                    }
-                    break;
-                case TouchPhase.Ended:
-                    if (hit.collider != null)
-                    {
-                        if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollHead") && !hit.collider.CompareTag("DollTarget")) break;
-
-                        if (hit.collider.CompareTag("DollTarget"))
-                        {
-                            Love += hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Release();
                         }
                     }
                     break;
