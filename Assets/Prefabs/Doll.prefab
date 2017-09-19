@@ -51,8 +51,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224846397026433096}
+  - component: {fileID: 65413675284847708}
   - component: {fileID: 114255677296674336}
   - component: {fileID: 114458175491270858}
+  - component: {fileID: 95939384016992408}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -535,6 +537,35 @@ PolygonCollider2D:
       - {x: -0.22, y: -0.8173764}
       - {x: -0.16, y: -0.63737637}
       - {x: -0.099999994, y: -0.7873764}
+--- !u!65 &65413675284847708
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1425854313605462}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.652943, y: 0.6920662, z: 1}
+  m_Center: {x: 0.015398979, y: 0.49269485, z: 0}
+--- !u!95 &95939384016992408
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1425854313605462}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b933917d6f02c4498224ae76cd26c14, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114119594519850902
 MonoBehaviour:
   m_ObjectHideFlags: 1

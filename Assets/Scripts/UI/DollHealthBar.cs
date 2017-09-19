@@ -22,4 +22,9 @@ public class DollHealthBar : MonoBehaviour
     {
         slider.value = Doll.Love;
     }
+    
+    void OnParticleCollision(GameObject other)
+    {
+        
+    }
 }
