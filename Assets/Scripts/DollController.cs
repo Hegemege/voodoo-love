@@ -73,16 +73,25 @@ public class DollController : MonoBehaviour
 
     private void HandleTouch(int touchFingerId, Vector3 touchPosition, TouchPhase touchPhase)
     {
+        Vector2 touchCoords = new Vector2(touchPosition.x, touchPosition.y);
         switch (touchPhase)
         {
             case TouchPhase.Began:
-                sr.color = Color.red;
+                //sr.color = Color.red;
+                // Test which target is being hit, if any
+                var hit = Physics2D.Raycast(touchCoords, Vector2.zero);
+                if (hit.collider != null)
+                {
+                    if (!hit.collider.CompareTag("Doll")) break;
+
+                    // TODO: Interaction
+                }
                 break;
             case TouchPhase.Moved:
-                sr.color = Color.yellow;
+                //sr.color = Color.yellow;
                 break;
             case TouchPhase.Ended:
-                sr.color = Color.green;
+                //sr.color = Color.green;
                 break;
         }
     }
