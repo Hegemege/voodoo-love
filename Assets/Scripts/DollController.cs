@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DollController : MonoBehaviour
 {
@@ -22,6 +24,9 @@ public class DollController : MonoBehaviour
     void Awake()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
+
+        Level = Random.Range(1, 3); // TODO: Calculate level by player progress
+        MaxLove = Math.Abs(Level) + 1 * 100f;
         Love = Random.Range(0.25f, 0.75f) * MaxLove;
 
         dollTargets = new List<DollTargetController>();
