@@ -107,51 +107,58 @@ public class DollController : MonoBehaviour
     private void HandleTouch(int touchFingerId, Vector3 touchPosition, TouchPhase touchPhase)
     {
         Vector2 touchCoords = new Vector2(touchPosition.x, touchPosition.y);
-        var hit = Physics2D.Raycast(touchCoords, Vector2.zero);
+        var hits = Physics2D.RaycastAll(touchCoords, Vector2.zero);
 
-        switch (touchPhase)
+        foreach (var hit in hits)
         {
-            case TouchPhase.Began:
-                //sr.color = Color.red;
-                // Test which target is being hit, if any
-                if (hit.collider != null)
-                {
-                    if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollHead") && !hit.collider.CompareTag("DollTarget")) break;
-
-                    if (hit.collider.CompareTag("DollTarget"))
+            switch (touchPhase)
+            {
+                case TouchPhase.Began:
+                    //sr.color = Color.red;
+                    // Test which target is being hit, if any
+                    if (hit.collider != null)
                     {
-                        hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Tap();
+                        if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollHead") && !hit.collider.CompareTag("DollTarget")) break;
+
+                        if (hit.collider.CompareTag("DollTarget"))
+                        {
+                            Love += hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Tap(GameController.instance.LovePerTap);
+                        }
+                        else
+                        {
+                            // Tap anywhere to gain some love
+                            Love += GameController.instance.LovePerTap * GameController.instance.TapHealthyFactor;
+                        }
                     }
-
-                    // Tap anywhere to gain some love
-                    Love += GameController.instance.LovePerTap * GameController.instance.TapHealthyFactor;
-                }
-                break;
-            case TouchPhase.Moved:
-                if (hit.collider != null)
-                {
-                    if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollHead") && !hit.collider.CompareTag("DollTarget")) break;
-
-                    if (hit.collider.CompareTag("DollTarget"))
+                    break;
+                case TouchPhase.Moved:
+                    if (hit.collider != null)
                     {
-                        hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Drag();
+                        if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollHead") && !hit.collider.CompareTag("DollTarget")) break;
+
+                        if (hit.collider.CompareTag("DollTarget"))
+                        {
+                            Love += hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Drag();
+                        }
+                        else
+                        {
+                            // Tap anywhere to gain some love
+                            Love += GameController.instance.LovePerSecond * Time.deltaTime * GameController.instance.TapHealthyFactor;
+                        }
                     }
-
-                    // Tap anywhere to gain some love
-                    Love += GameController.instance.LovePerSecond * Time.deltaTime * GameController.instance.TapHealthyFactor;
-                }
-                break;
-            case TouchPhase.Ended:
-                if (hit.collider != null)
-                {
-                    if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollHead") && !hit.collider.CompareTag("DollTarget")) break;
-
-                    if (hit.collider.CompareTag("DollTarget"))
+                    break;
+                case TouchPhase.Ended:
+                    if (hit.collider != null)
                     {
-                        hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Release();
+                        if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollHead") && !hit.collider.CompareTag("DollTarget")) break;
+
+                        if (hit.collider.CompareTag("DollTarget"))
+                        {
+                            Love += hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Release();
+                        }
                     }
-                }
-                break;
+                    break;
+            }
         }
     }
 
@@ -197,7 +204,7 @@ public class DollController : MonoBehaviour
 
             var newTarget = Instantiate(DollTargetPrefab);
             newTarget.transform.parent = DollTargetContainer.transform;
-            newTarget.transform.position = new Vector3(randomCoords.x, randomCoords.y, transform.position.z);
+            newTarget.transform.position = new Vector3(randomCoords.x, randomCoords.y, transform.position.z - 0.05f);
 
             var targetController = newTarget.GetComponent<DollTargetController>();
             // TODO; proper values
