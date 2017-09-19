@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 4588314782288278}
   - component: {fileID: 212058467649534448}
   - component: {fileID: 60513601745001766}
+  - component: {fileID: 95654645065360760}
   m_Layer: 0
   m_Name: Body
   m_TagString: Doll
@@ -137,6 +138,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4230152413020802}
+  - component: {fileID: 95157019253368514}
   m_Layer: 0
   m_Name: Sprites
   m_TagString: Untagged
@@ -202,6 +204,7 @@ GameObject:
   - component: {fileID: 223707940173987266}
   - component: {fileID: 114119594519850902}
   - component: {fileID: 114201030232620350}
+  - component: {fileID: 95842451954698888}
   m_Layer: 5
   m_Name: DollCanvas
   m_TagString: Untagged
@@ -549,6 +552,57 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.652943, y: 0.6920662, z: 1}
   m_Center: {x: 0.015398979, y: 0.49269485, z: 0}
+--- !u!95 &95157019253368514
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1704346614861224}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d6d27d2d439d04eea91fabd7f15252e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95654645065360760
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686787790055930}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8140bebb9a57e4d989fea3ec0534c330, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95842451954698888
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986899023665978}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c74d6d0154d094ccaaa552bfac601119, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95939384016992408
 Animator:
   serializedVersion: 3
