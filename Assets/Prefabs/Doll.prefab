@@ -666,6 +666,8 @@ MonoBehaviour:
   BodyReference: {fileID: 1686787790055930}
   DollTargetPrefab: {fileID: 1968288123107000, guid: dd94654ee5b3dc64bb1e6c559f470f1e,
     type: 2}
+  ClickingEffectPrefab: {fileID: 1914899681616108, guid: b33740aba349e43cf825ae64c1066454,
+    type: 2}
   MinTargetDistance: 2
   Dead: 0
   Finished: 0

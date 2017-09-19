@@ -15,6 +15,7 @@ public class DollController : MonoBehaviour
     public GameObject HeadReference;
     public GameObject BodyReference;
     public GameObject DollTargetPrefab;
+    public GameObject ClickingEffectPrefab;
 
     public float MinTargetDistance;
 
@@ -130,6 +131,9 @@ public class DollController : MonoBehaviour
                             // Tap anywhere to gain some love
                             Love += GameController.instance.LovePerTap * GameController.instance.TapHealthyFactor;
                         }
+
+                        var effects = Instantiate(ClickingEffectPrefab);
+                        effects.transform.position = new Vector3(touchCoords.x, touchCoords.y, 0f);
                     }
                     break;
                 case TouchPhase.Moved:
