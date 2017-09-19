@@ -71,4 +71,14 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetFloat("LovePerTap", 1);
         PlayerPrefs.SetFloat("LovePerSecond", 0);
     }
+
+    public void DollFinished()
+    {
+        Debug.Log("Doll has been finished");
+    }
+
+    public void DollFailed()
+    {
+        
+    }
 }
