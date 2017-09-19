@@ -4,6 +4,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class DollHealthBar : MonoBehaviour
 {
+    public DollController Doll;
+    
     Slider slider;
 
     void Awake()
@@ -13,11 +15,11 @@ public class DollHealthBar : MonoBehaviour
 
     void Start()
     {
-        slider.maxValue = GameController.instance.CurrentDoll.MaxLove;
+        slider.maxValue = Doll.MaxLove;
     }
 
     void Update()
     {
-        slider.value = GameController.instance.CurrentDoll.Love;
+        slider.value = Doll.Love;
     }
 }
