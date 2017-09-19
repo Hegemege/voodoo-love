@@ -12,7 +12,8 @@ public class DollController : MonoBehaviour
 
     public int DollTargetCount;
 
-    public GameObject DollTargetContainer;
+    public GameObject HeadReference;
+    public GameObject BodyReference;
     public GameObject DollTargetPrefab;
 
     public float MinTargetDistance;
@@ -203,7 +204,16 @@ public class DollController : MonoBehaviour
             }
 
             var newTarget = Instantiate(DollTargetPrefab);
-            newTarget.transform.parent = DollTargetContainer.transform;
+            if (hit.collider.CompareTag("DollHead"))
+            {
+                newTarget.transform.parent = HeadReference.transform;
+            }
+            else
+            {
+                newTarget.transform.parent = BodyReference.transform;
+            }
+
+                
             newTarget.transform.position = new Vector3(randomCoords.x, randomCoords.y, transform.position.z - 0.05f);
 
             var targetController = newTarget.GetComponent<DollTargetController>();
