@@ -11,8 +11,8 @@ public class GameController : MonoBehaviour
     public float Mana;
     public float ManaPerSecond;
 
-    public float HappinessPerSecond;
-    public float HappinessPerTap;
+    public float LovePerSecond;
+    public float LovePerTap;
 
     [HideInInspector]
     public DollController CurrentDoll;

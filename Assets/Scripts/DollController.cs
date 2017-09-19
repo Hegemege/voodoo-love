@@ -11,12 +11,22 @@ public class DollController : MonoBehaviour
     [HideInInspector]
     public bool Dead;
 
+    public int DollTargetCount;
+
     private SpriteRenderer sr;
+
+    public GameObject DollTargetContainer;
+    public GameObject DollTargetPrefab;
+    private List<DollTargetController> dollTargets;
 
     void Awake()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
         Love = Random.Range(0.25f, 0.75f) * MaxLove;
+
+        dollTargets = new List<DollTargetController>();
+        
+        GenerateDollTargets();
     }
 
     void Start() 
@@ -69,6 +79,36 @@ public class DollController : MonoBehaviour
             case TouchPhase.Ended:
                 sr.color = Color.green;
                 break;
+        }
+    }
+
+    private void GenerateDollTargets()
+    {
+        var generatedTargets = 0;
+
+        var failsafeTries = 0;
+        var failsafeTriesMax = 20;
+
+        while (generatedTargets < DollTargetCount && failsafeTries < failsafeTriesMax)
+        {
+            if (true) // TODO: check if the target is within the sprite with raycast or smth
+            {
+                var newTarget = Instantiate(DollTargetPrefab);
+                newTarget.transform.parent = DollTargetContainer.transform;
+                newTarget.transform.localPosition = Vector3.zero;
+
+                var targetController = newTarget.GetComponent<DollTargetController>();
+                // TODO; proper values
+                targetController.Type = DollTargetType.Wound;
+                targetController.Initialize();
+
+                dollTargets.Add(targetController);
+                generatedTargets += 1;
+            }
+            else
+            {
+                failsafeTries += 1;
+            }            
         }
     }
 }
