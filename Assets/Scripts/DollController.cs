@@ -116,7 +116,7 @@ public class DollController : MonoBehaviour
                 // Test which target is being hit, if any
                 if (hit.collider != null)
                 {
-                    if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollTarget")) break;
+                    if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollHead") && !hit.collider.CompareTag("DollTarget")) break;
 
                     if (hit.collider.CompareTag("DollTarget"))
                     {
@@ -130,7 +130,7 @@ public class DollController : MonoBehaviour
             case TouchPhase.Moved:
                 if (hit.collider != null)
                 {
-                    if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollTarget")) break;
+                    if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollHead") && !hit.collider.CompareTag("DollTarget")) break;
 
                     if (hit.collider.CompareTag("DollTarget"))
                     {
@@ -144,7 +144,7 @@ public class DollController : MonoBehaviour
             case TouchPhase.Ended:
                 if (hit.collider != null)
                 {
-                    if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollTarget")) break;
+                    if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollHead") && !hit.collider.CompareTag("DollTarget")) break;
 
                     if (hit.collider.CompareTag("DollTarget"))
                     {
