@@ -160,7 +160,7 @@ public class DollController : MonoBehaviour
         var generatedTargets = 0;
 
         var failsafeTries = 0;
-        var failsafeTriesMax = 20;
+        var failsafeTriesMax = 50;
 
         while (generatedTargets < DollTargetCount && failsafeTries < failsafeTriesMax)
         {
@@ -168,7 +168,7 @@ public class DollController : MonoBehaviour
             var renderers = GetComponentsInChildren<SpriteRenderer>();
             foreach (var ren in renderers)
             {
-                if (ren.CompareTag("Doll"))
+                if (ren.CompareTag("Doll") || ren.CompareTag("DollHead"))
                 {
                     bounds.Encapsulate(ren.bounds);
                 }
@@ -202,6 +202,21 @@ public class DollController : MonoBehaviour
             var targetController = newTarget.GetComponent<DollTargetController>();
             // TODO; proper values
             targetController.Type = DollTargetType.Wound;
+
+            List<DollTargetType> choices;
+
+            if (hit.collider.CompareTag("DollHead"))
+            {
+                choices = new List<DollTargetType>() {DollTargetType.Crack, DollTargetType.Dirt};
+            }
+            else
+            {
+                choices = new List<DollTargetType>() { DollTargetType.Wound, DollTargetType.Pin, DollTargetType.Dirt };
+            }
+
+            var randomType = choices[Random.Range(0, choices.Count)];
+            targetController.Type = randomType;
+
             targetController.Initialize();
 
             dollTargets.Add(targetController);

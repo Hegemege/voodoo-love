@@ -71,6 +71,7 @@ public class DollTargetController : MonoBehaviour
 
         sr.sprite = randomSprite;
         sr.transform.localRotation = Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.forward);
+        sr.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f); // TODO: remove?
     }
 
     public void Tap()
