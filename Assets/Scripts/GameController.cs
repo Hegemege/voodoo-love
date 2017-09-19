@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour
     public float LovePerSecond;
     public float LovePerTap;
 
+    public float TapHealthyFactor;
+
     [HideInInspector]
     public DollController CurrentDoll;
 

@@ -11,6 +11,7 @@ public enum DollTargetType
 public class DollTargetController : MonoBehaviour
 {
     public float Health;
+    public float MaxHealth;
     public float LoveOnFinish;
     public float LPSIncreaseOnFinish;
 
@@ -18,6 +19,9 @@ public class DollTargetController : MonoBehaviour
 
     public List<Sprite> WoundSprites;
     public List<Sprite> PinSprites;
+
+    [Space(20)]
+    public bool Healed;
 
     private SpriteRenderer sr;
 
@@ -57,5 +61,23 @@ public class DollTargetController : MonoBehaviour
         var randomSprite = choices[Random.Range(0, choices.Count)];
 
         sr.sprite = randomSprite;
+    }
+
+    public void Tap()
+    {
+        
+    }
+
+    public void Drag()
+    {
+        if (Type != DollTargetType.Pin)
+        {
+            
+        }
+    }
+
+    public void Release()
+    {
+        
     }
 }

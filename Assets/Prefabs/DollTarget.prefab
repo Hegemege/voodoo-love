@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4070209291433182}
   m_Layer: 0
   m_Name: Sprites
-  m_TagString: Untagged
+  m_TagString: DollTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 212253885804999886}
   m_Layer: 0
   m_Name: TargetSprite
-  m_TagString: Untagged
+  m_TagString: DollTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 114599763202389568}
   m_Layer: 0
   m_Name: DollTarget
-  m_TagString: Untagged
+  m_TagString: DollTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

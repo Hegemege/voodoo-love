@@ -14,7 +14,8 @@ public class DollController : MonoBehaviour
 
     public GameObject DollTargetContainer;
     public GameObject DollTargetPrefab;
-    
+
+    public float MinTargetDistance;
 
     // [HideInInspector] but easier to debug without
     [Space(20)]
@@ -106,25 +107,50 @@ public class DollController : MonoBehaviour
     private void HandleTouch(int touchFingerId, Vector3 touchPosition, TouchPhase touchPhase)
     {
         Vector2 touchCoords = new Vector2(touchPosition.x, touchPosition.y);
+        var hit = Physics2D.Raycast(touchCoords, Vector2.zero);
+
         switch (touchPhase)
         {
             case TouchPhase.Began:
                 //sr.color = Color.red;
                 // Test which target is being hit, if any
-                var hit = Physics2D.Raycast(touchCoords, Vector2.zero);
                 if (hit.collider != null)
                 {
                     if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollTarget")) break;
 
-                    // TODO: Interaction
-                    Love += GameController.instance.LovePerTap;
+                    if (hit.collider.CompareTag("DollTarget"))
+                    {
+                        hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Tap();
+                    }
+
+                    // Tap anywhere to gain some love
+                    Love += GameController.instance.LovePerTap * GameController.instance.TapHealthyFactor;
                 }
                 break;
             case TouchPhase.Moved:
-                //sr.color = Color.yellow;
+                if (hit.collider != null)
+                {
+                    if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollTarget")) break;
+
+                    if (hit.collider.CompareTag("DollTarget"))
+                    {
+                        hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Drag();
+                    }
+
+                    // Tap anywhere to gain some love
+                    Love += GameController.instance.LovePerSecond * Time.deltaTime * GameController.instance.TapHealthyFactor;
+                }
                 break;
             case TouchPhase.Ended:
-                //sr.color = Color.green;
+                if (hit.collider != null)
+                {
+                    if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollTarget")) break;
+
+                    if (hit.collider.CompareTag("DollTarget"))
+                    {
+                        hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Release();
+                    }
+                }
                 break;
         }
     }
@@ -157,7 +183,7 @@ public class DollController : MonoBehaviour
             foreach (var target in dollTargets)
             {
                 if (Vector2.Distance(new Vector2(target.transform.position.x, 
-                    target.transform.position.y), randomCoords) < 1f)
+                    target.transform.position.y), randomCoords) < MinTargetDistance)
                 {
                     tooClose = true;
                 }
