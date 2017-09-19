@@ -6,6 +6,7 @@ public class DollController : MonoBehaviour
 {
     public int Level;
     public float Love;
+    public float MaxLove;
 
     [HideInInspector]
     public bool Dead;
@@ -15,6 +16,7 @@ public class DollController : MonoBehaviour
     void Awake()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
+        Love = Random.Range(0.25f, 0.75f) * MaxLove;
     }
 
     void Start() 
