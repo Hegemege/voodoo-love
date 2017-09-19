@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 81cc4d8002aff4faba99a0ba4074f8b0
-timeCreated: 1505821117
+timeCreated: 1505827314
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -104,12 +104,12 @@ TextureImporter:
       name: part_body_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 104
-        width: 555
-        height: 457
+        x: 1
+        y: 102
+        width: 596
+        height: 497
       alignment: 9
-      pivot: {x: 0.5, y: 0.95200115}
+      pivot: {x: 0.5, y: 0.97700965}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -118,12 +118,12 @@ TextureImporter:
       name: part_body_1
       rect:
         serializedVersion: 2
-        x: 341
-        y: 1
+        x: 345
+        y: 0
         width: 20
-        height: 15
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
