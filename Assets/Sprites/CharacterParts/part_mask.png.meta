@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ddaac84d4fa3f46f19c40aa16a2e6213
-timeCreated: 1505821095
+timeCreated: 1505824066
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -103,12 +103,12 @@ TextureImporter:
       name: part_mask_0
       rect:
         serializedVersion: 2
-        x: 48
+        x: 0
         y: 0
-        width: 339
-        height: 435
+        width: 334
+        height: 449
       alignment: 9
-      pivot: {x: 0.5, y: 0.3264396}
+      pivot: {x: 0.5, y: 0.3540146}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
