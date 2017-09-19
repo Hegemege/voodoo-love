@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: DollCanvas
+    uniqueID: 2989006499
+    locked: 0
