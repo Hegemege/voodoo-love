@@ -60,7 +60,7 @@ public class DollController : MonoBehaviour
         // Updates all game state variables (love etc)
         if (Dead || Finished) return;
 
-        Love += GameController.instance.LovePerSecond;
+        Love += GameController.instance.LovePerSecond * Time.deltaTime;
 
         if (Love > MaxLove)
         {
@@ -114,7 +114,7 @@ public class DollController : MonoBehaviour
                 var hit = Physics2D.Raycast(touchCoords, Vector2.zero);
                 if (hit.collider != null)
                 {
-                    if (!hit.collider.CompareTag("Doll")) break;
+                    if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollTarget")) break;
 
                     // TODO: Interaction
                     Love += GameController.instance.LovePerTap;
@@ -138,24 +138,50 @@ public class DollController : MonoBehaviour
 
         while (generatedTargets < DollTargetCount && failsafeTries < failsafeTriesMax)
         {
-            if (true) // TODO: check if the target is within the sprite with raycast or smth
+            var bounds = sr.bounds;
+            var renderers = GetComponentsInChildren<SpriteRenderer>();
+            foreach (var ren in renderers)
             {
-                var newTarget = Instantiate(DollTargetPrefab);
-                newTarget.transform.parent = DollTargetContainer.transform;
-                newTarget.transform.localPosition = Vector3.zero;
-
-                var targetController = newTarget.GetComponent<DollTargetController>();
-                // TODO; proper values
-                targetController.Type = DollTargetType.Wound;
-                targetController.Initialize();
-
-                dollTargets.Add(targetController);
-                generatedTargets += 1;
+                if (ren.CompareTag("Doll"))
+                {
+                    bounds.Encapsulate(ren.bounds);
+                }
             }
-            else
+
+            var randomCoords = new Vector2(Random.Range(bounds.min.x, bounds.max.x), Random.Range(bounds.min.y, bounds.max.y));
+
+            var hit = Physics2D.Raycast(randomCoords, Vector2.zero);
+
+            // Test random coords against all current targets, if too close, discard
+            var tooClose = false;
+            foreach (var target in dollTargets)
+            {
+                if (Vector2.Distance(new Vector2(target.transform.position.x, 
+                    target.transform.position.y), randomCoords) < 1f)
+                {
+                    tooClose = true;
+                }
+            }
+
+            if (!hit.collider || !hit.collider.CompareTag("Doll") || tooClose)
             {
                 failsafeTries += 1;
-            }            
+                continue;
+            }
+
+            var newTarget = Instantiate(DollTargetPrefab);
+            newTarget.transform.parent = DollTargetContainer.transform;
+            newTarget.transform.position = new Vector3(randomCoords.x, randomCoords.y, transform.position.z);
+
+            var targetController = newTarget.GetComponent<DollTargetController>();
+            // TODO; proper values
+            targetController.Type = DollTargetType.Wound;
+            targetController.Initialize();
+
+            dollTargets.Add(targetController);
+            generatedTargets += 1;
+            failsafeTries = 0;
+         
         }
     }
 }

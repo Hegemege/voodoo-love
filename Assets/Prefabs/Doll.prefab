@@ -455,11 +455,12 @@ MonoBehaviour:
   Level: 0
   Love: 0
   MaxLove: 0
-  Dead: 0
-  DollTargetCount: 3
+  DollTargetCount: 5
   DollTargetContainer: {fileID: 1796910211793660}
   DollTargetPrefab: {fileID: 1968288123107000, guid: dd94654ee5b3dc64bb1e6c559f470f1e,
     type: 2}
+  Dead: 0
+  Finished: 0
 --- !u!212 &212058467649534448
 SpriteRenderer:
   m_ObjectHideFlags: 1
