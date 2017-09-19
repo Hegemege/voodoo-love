@@ -5,25 +5,26 @@ using UnityEngine;
 public enum DollTargetType
 {
     Wound,
-    Pin
+    Pin,
+    Dirt
 }
 
 public class DollTargetController : MonoBehaviour
 {
     public float Health;
     public float MaxHealth;
-    public float LoveOnFinish;
-    public float LPSIncreaseOnFinish;
 
     public DollTargetType Type;
 
     public List<Sprite> WoundSprites;
     public List<Sprite> PinSprites;
+    public List<Sprite> DirtSprites;
 
     [Space(20)]
     public bool Healed;
 
     private SpriteRenderer sr;
+    private bool heldDown;
 
     void Awake()
     {
@@ -52,6 +53,9 @@ public class DollTargetController : MonoBehaviour
             case DollTargetType.Pin:
                 choices = PinSprites;
                 break;
+            case DollTargetType.Dirt:
+                choices = DirtSprites;
+                break;
             default:
                 Debug.LogWarning("Doll Type is not updated in code to reflect correct sprites");
                 choices = WoundSprites;
@@ -65,19 +69,16 @@ public class DollTargetController : MonoBehaviour
 
     public void Tap()
     {
-        
+        heldDown = true;
     }
 
     public void Drag()
     {
-        if (Type != DollTargetType.Pin)
-        {
-            
-        }
+        
     }
 
     public void Release()
     {
-        
+        heldDown = false;
     }
 }

@@ -51,9 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7995d28eae54cf49acbf0153d4cac46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CuredDolls: 0
   Level: 0
   Mana: 0
   ManaPerSecond: 1
-  HappinessPerSecond: 1
-  HappinessPerTap: 5
+  LovePerSecond: 0
+  LovePerTap: 1
+  TapHealthyFactor: 0.75
   CurrentDoll: {fileID: 0}

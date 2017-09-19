@@ -111,13 +111,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 0
-  LoveOnFinish: 0
-  LPSIncreaseOnFinish: 0
+  MaxHealth: 0
   Type: 0
   WoundSprites:
   - {fileID: 21300000, guid: 16181c967f28da940ada1744282d3e97, type: 3}
   PinSprites:
   - {fileID: 21300000, guid: 16181c967f28da940ada1744282d3e97, type: 3}
+  DirtSprites:
+  - {fileID: 21300000, guid: 16181c967f28da940ada1744282d3e97, type: 3}
+  Healed: 0
 --- !u!212 &212253885804999886
 SpriteRenderer:
   m_ObjectHideFlags: 1
