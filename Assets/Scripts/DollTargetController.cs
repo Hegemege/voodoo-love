@@ -153,10 +153,28 @@ public class DollTargetController : MonoBehaviour
         sr.gameObject.AddComponent<BoxCollider2D>();
     }
 
-    public float Tap(float damage)
+    public float Tap()
     {
         heldDown = true;
         heldDownTimer = 0f;
+        var damage = 0f;
+
+        switch (Type)
+        {
+            case DollTargetType.Crack:
+                damage = GameController.instance.WoundDamage;
+                break;
+            case DollTargetType.Dirt:
+                damage = GameController.instance.FeatherDamage;
+                break;
+            case DollTargetType.Pin:
+                damage = GameController.instance.MagnetAmount;
+                break;
+            case DollTargetType.Wound:
+                damage = GameController.instance.WoundDamage;
+                break;
+        }
+
         takenDPS = damage;
 
         AudioSource audioSource;

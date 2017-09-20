@@ -9,14 +9,11 @@ public class GameController : MonoBehaviour
 
     public GameObject ManaEffectPrefab;
     public GameObject CuredEffectPrefab;
-    
-    public int CuredDolls;
-    public int Level;
-    public float Mana;
-    public float ManaPerSecond;
 
-    public float LovePerSecond;
-    public float LovePerTap;
+    public int CuredDolls = 0;
+    public int Level = 1;
+    public float Mana = 100;
+    public float ManaPerSecond;
 
     public float TapHealthyFactor;
 
@@ -29,6 +26,19 @@ public class GameController : MonoBehaviour
     public bool WoundUpgradeable;
     public bool MagnetUpgradeable;
     public bool FeatherUpgradeable;
+
+    public float WoundPurchaseCost;
+    public float MagnetPurchaseCost;
+    public float FeatherPurchaseCost;
+
+    public int WoundAmount = 1;
+    public int MagnetAmount = 1;
+    public int FeatherAmount = 1;
+
+    public float WoundDamage;
+    public float MagnetDamage;
+    public float FeatherDamage;
+    public float GeneralDamage;
 
     [HideInInspector]
     public DollController CurrentDoll;
@@ -46,20 +56,42 @@ public class GameController : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
-        
+
+#if (UNITY_EDITOR)
+        PlayerPrefs.DeleteAll();
+#else
         Load();
+#endif
+
+
     }
 
     void Start() 
     {
-
+        CurrentDoll.Initialize();
     }
     
     void FixedUpdate()
     {
         if (!CurrentDoll || CurrentDoll.Dead) return;
 
+        // Updated values
+        WoundPurchaseCost = Mathf.Exp(WoundAmount);
+        MagnetPurchaseCost = Mathf.Exp(MagnetAmount);
+        FeatherPurchaseCost = Mathf.Exp(FeatherAmount);
 
+        ManaPerSecond = CuredDolls * CuredDolls * 5f;
+
+        Mana += ManaPerSecond * Time.fixedDeltaTime;
+
+        WoundUpgradeable = WoundPurchaseCost < Mana;
+        MagnetUpgradeable = MagnetPurchaseCost < Mana;
+        FeatherUpgradeable = FeatherPurchaseCost < Mana;
+
+        WoundDamage = Mathf.Exp(WoundAmount);
+        MagnetDamage = Mathf.Exp(MagnetAmount);
+        FeatherDamage = Mathf.Exp(FeatherAmount);
+        GeneralDamage = Mathf.Exp((FeatherAmount + MagnetAmount + WoundAmount) / 3f);
     }
 
     void OnDestroy()
@@ -72,24 +104,30 @@ public class GameController : MonoBehaviour
         CuredDolls = PlayerPrefs.GetInt("CuredDolls", 0);
         Level = PlayerPrefs.GetInt("Level", 1);
         Mana = PlayerPrefs.GetFloat("Mana", 0);
-        ManaPerSecond = PlayerPrefs.GetFloat("ManaPerSecond", 0);
-        LovePerTap = PlayerPrefs.GetFloat("LovePerTap", 1);
-        LovePerSecond = PlayerPrefs.GetFloat("LovePerSecond", 0);
-    }
+
+        WoundAmount = PlayerPrefs.GetInt("WoundAmount", 1);
+        MagnetAmount = PlayerPrefs.GetInt("MagnetAmount", 1);
+        FeatherAmount = PlayerPrefs.GetInt("FeatherAmount", 1);
+}
 
     void Save()
     {
-        PlayerPrefs.SetInt("CuredDolls", 0);
-        PlayerPrefs.SetInt("Level", 1);
-        PlayerPrefs.SetFloat("Mana", 0);
-        PlayerPrefs.SetFloat("ManaPerSecond", 0);
-        PlayerPrefs.SetFloat("LovePerTap", 1);
-        PlayerPrefs.SetFloat("LovePerSecond", 0);
+        PlayerPrefs.SetInt("CuredDolls", CuredDolls);
+        PlayerPrefs.SetInt("Level", Level);
+        PlayerPrefs.SetFloat("Mana", Mana);
+
+        PlayerPrefs.SetInt("WoundAmount", WoundAmount);
+        PlayerPrefs.SetInt("MagnetAmount", MagnetAmount);
+        PlayerPrefs.SetInt("FeatherAmount", FeatherAmount);
     }
 
     public void DollFinished()
     {
         NewDoll();
+
+        // TODO: UPDATE VALUES
+
+        CurrentDoll.Initialize(); // pulls values from gamecontroller
 
         // Spawn audio effect
         var soundEffect = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
@@ -105,6 +143,11 @@ public class GameController : MonoBehaviour
 
     private void NewDoll()
     {
+        Level += 1;
+        CuredDolls += 1;
+
+        Save();
+
         // Destroy old
         if (CurrentDoll != null)
         {
@@ -127,17 +170,20 @@ public class GameController : MonoBehaviour
 
     public void MagnetUpgraded()
     {
-        
+        Mana -= MagnetPurchaseCost;
+        MagnetAmount += 1;
     }
 
     public void FeatherUpgraded()
     {
-        
+        Mana -= FeatherPurchaseCost;
+        FeatherAmount += 1;
     }
 
     public void WoundUpgraded()
     {
-        
+        Mana -= WoundPurchaseCost;
+        WoundAmount += 1;
     }
 
     public void DollFailed()

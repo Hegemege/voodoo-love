@@ -276,11 +276,9 @@ MonoBehaviour:
   CuredEffectPrefab: {fileID: 1372616718984658, guid: b9369441e72d784438023b2b92647bd6,
     type: 2}
   CuredDolls: 0
-  Level: 0
-  Mana: 0
+  Level: 1
+  Mana: 100
   ManaPerSecond: 1
-  LovePerSecond: 0
-  LovePerTap: 1
   TapHealthyFactor: 0.75
   AudioPlayerPrefab: {fileID: 1401753452069112, guid: 1d54fd92605ac334e8fcb6d4ebe2ae61,
     type: 2}
@@ -290,4 +288,14 @@ MonoBehaviour:
   WoundUpgradeable: 0
   MagnetUpgradeable: 0
   FeatherUpgradeable: 0
+  WoundPurchaseCost: 0
+  MagnetPurchaseCost: 0
+  FeatherPurchaseCost: 0
+  WoundAmount: 1
+  MagnetAmount: 1
+  FeatherAmount: 1
+  WoundDamage: 0
+  MagnetDamage: 0
+  FeatherDamage: 0
+  GeneralDamage: 0
   CurrentDoll: {fileID: 0}
