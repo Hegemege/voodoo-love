@@ -76,9 +76,9 @@ public class GameController : MonoBehaviour
         if (!CurrentDoll || CurrentDoll.Dead) return;
 
         // Updated values
-        WoundPurchaseCost = Mathf.Exp(WoundAmount);
-        MagnetPurchaseCost = Mathf.Exp(MagnetAmount);
-        FeatherPurchaseCost = Mathf.Exp(FeatherAmount);
+        WoundPurchaseCost = 100 + Mathf.Exp(1.5f*WoundAmount);
+        MagnetPurchaseCost = 100 + Mathf.Exp(1.5f*MagnetAmount);
+        FeatherPurchaseCost = 100 + Mathf.Exp(1.5f*FeatherAmount);
 
         ManaPerSecond = CuredDolls * CuredDolls * 5f;
 
