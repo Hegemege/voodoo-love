@@ -128,6 +128,9 @@ public class DollController : MonoBehaviour
 
     private void HandleTouch(int touchFingerId, Vector3 touchPosition, TouchPhase touchPhase)
     {
+        if (Finished) return;
+        if (MoveIn) return;
+
         Vector2 touchCoords = new Vector2(touchPosition.x, touchPosition.y);
         var hits = Physics2D.RaycastAll(touchCoords, Vector2.zero);
 
