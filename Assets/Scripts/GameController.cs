@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour
     public AudioClip DollFinishedClip;
     public AudioClip NewDollClip;
 
+    public GameObject DollPrefab;
+
     [HideInInspector]
     public DollController CurrentDoll;
 
@@ -80,9 +82,7 @@ public class GameController : MonoBehaviour
 
     public void DollFinished()
     {
-        Debug.Log("Doll has been finished");
-
-        
+        NewDoll();
 
         // Spawn audio effect
         var soundEffect = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
@@ -93,7 +93,18 @@ public class GameController : MonoBehaviour
 
     private void NewDoll()
     {
+        // Destroy old
+        if (CurrentDoll != null)
+        {
+            // Move doll away and destroy
+            CurrentDoll.MoveAway = true;
+            Destroy(CurrentDoll.gameObject, 5f);
+        }
 
+        var newDoll = Instantiate(DollPrefab);
+        newDoll.transform.position = new Vector3(15f, 0f, 0f);
+        CurrentDoll = newDoll.GetComponent<DollController>();
+        CurrentDoll.MoveIn = true;
 
         // Spawn audio effect
         var soundEffect = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
