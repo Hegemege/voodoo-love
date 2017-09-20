@@ -88,10 +88,10 @@ public class GameController : MonoBehaviour
         MagnetUpgradeable = MagnetPurchaseCost < Mana;
         FeatherUpgradeable = FeatherPurchaseCost < Mana;
 
-        WoundDamage = Mathf.Exp(WoundAmount);
-        MagnetDamage = Mathf.Exp(MagnetAmount);
-        FeatherDamage = Mathf.Exp(FeatherAmount);
-        GeneralDamage = Mathf.Exp((FeatherAmount + MagnetAmount + WoundAmount) / 3f);
+        WoundDamage = Mathf.Exp(WoundAmount * 0.75f);
+        MagnetDamage = Mathf.Exp(MagnetAmount * 0.75f);
+        FeatherDamage = Mathf.Exp(FeatherAmount*0.75f);
+        GeneralDamage = Mathf.Exp(0.75f*(FeatherAmount + MagnetAmount + WoundAmount) / 3f);
     }
 
     void OnDestroy()
