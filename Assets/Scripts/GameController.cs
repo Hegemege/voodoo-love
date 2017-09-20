@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     public int CuredDolls = 0;
     public int Level = 1;
     public float Mana = 100;
-    public float ManaPerSecond;
+    public float ManaPerSecond = 0f;
 
     public float TapHealthyFactor;
 
@@ -101,6 +101,15 @@ public class GameController : MonoBehaviour
 
     void Load()
     {
+        var checkAll = PlayerPrefs.HasKey("CuredDolls");
+        checkAll &= PlayerPrefs.HasKey("Level");
+        checkAll &= PlayerPrefs.HasKey("Mana");
+        checkAll &= PlayerPrefs.HasKey("WoundAmount");
+        checkAll &= PlayerPrefs.HasKey("MagnetAmount");
+        checkAll &= PlayerPrefs.HasKey("FeatherAmount");
+
+        if (!checkAll) return;
+
         CuredDolls = PlayerPrefs.GetInt("CuredDolls", 0);
         Level = PlayerPrefs.GetInt("Level", 1);
         Mana = PlayerPrefs.GetFloat("Mana", 0);
