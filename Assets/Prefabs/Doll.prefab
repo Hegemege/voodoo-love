@@ -51,10 +51,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224846397026433096}
-  - component: {fileID: 65413675284847708}
   - component: {fileID: 114255677296674336}
   - component: {fileID: 114458175491270858}
   - component: {fileID: 95939384016992408}
+  - component: {fileID: 61845438201173948}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -540,18 +540,31 @@ PolygonCollider2D:
       - {x: -0.22, y: -0.8173764}
       - {x: -0.16, y: -0.63737637}
       - {x: -0.099999994, y: -0.7873764}
---- !u!65 &65413675284847708
-BoxCollider:
+--- !u!61 &61845438201173948
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1425854313605462}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.11507797, y: 0.6024647}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.652943, y: 0.6920662, z: 1}
-  m_Center: {x: 0.015398979, y: 0.49269485, z: 0}
+  m_Size: {x: 9.550051, y: 0.55067825}
+  m_EdgeRadius: 0
 --- !u!95 &95157019253368514
 Animator:
   serializedVersion: 3
@@ -756,6 +769,8 @@ MonoBehaviour:
   MinTargetDistance: 2
   Dead: 0
   Finished: 0
+  MoveAway: 0
+  MoveIn: 0
 --- !u!114 &114458175491270858
 MonoBehaviour:
   m_ObjectHideFlags: 1
