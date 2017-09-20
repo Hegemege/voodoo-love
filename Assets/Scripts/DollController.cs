@@ -150,15 +150,19 @@ public class DollController : MonoBehaviour
                         if (hit.collider.CompareTag("DollTarget"))
                         {
                             Love += hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Tap(GameController.instance.LovePerTap);
+
+                            return;
                         }
                         else
                         {
                             // Tap anywhere to gain some love
                             Love += GameController.instance.LovePerTap * GameController.instance.TapHealthyFactor;
+
+                            var effects = Instantiate(ClickingEffectPrefab);
+                            effects.transform.position = new Vector3(touchCoords.x, touchCoords.y, 0f);
                         }
 
-                        var effects = Instantiate(ClickingEffectPrefab);
-                        effects.transform.position = new Vector3(touchCoords.x, touchCoords.y, 0f);
+
                     }
                     break;
                 case TouchPhase.Moved:
