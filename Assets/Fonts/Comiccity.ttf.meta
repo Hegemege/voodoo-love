@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: fd6dab33731564d10bc9dae3e150ffd5
+timeCreated: 1505889175
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Comiccity
+  fontNames:
+  - Comiccity
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
