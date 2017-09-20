@@ -125,6 +125,21 @@ public class GameController : MonoBehaviour
         Destroy(soundEffect.gameObject, 3f);
     }
 
+    public void MagnetUpgraded()
+    {
+        
+    }
+
+    public void FeatherUpgraded()
+    {
+        
+    }
+
+    public void WoundUpgraded()
+    {
+        
+    }
+
     public void DollFailed()
     {
         

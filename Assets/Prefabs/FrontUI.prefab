@@ -850,7 +850,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114776399529396882}
         m_MethodName: OnMagnetClick
         m_Mode: 1
         m_Arguments:
@@ -916,7 +916,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114776399529396882}
         m_MethodName: OnFeatherClick
         m_Mode: 1
         m_Arguments:
@@ -1173,6 +1173,9 @@ MonoBehaviour:
   FeatherAmountText: {fileID: 114746312092680278}
   ManaAmount: {fileID: 114585603542204468}
   DollAmount: {fileID: 114961277973700806}
+  AudioPlayerPrefab: {fileID: 1401753452069112, guid: 1d54fd92605ac334e8fcb6d4ebe2ae61,
+    type: 2}
+  PurchaseClip: {fileID: 8300000, guid: 5c4669360e8ed4410a4f7d92730bf9bb, type: 3}
 --- !u!114 &114782422420806294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1212,7 +1215,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114776399529396882}
         m_MethodName: OnWoundClick
         m_Mode: 1
         m_Arguments:
