@@ -825,7 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.04757786, g: 0.5726407, b: 0.64705884, a: 1}
+  m_Color: {r: 0.5372549, g: 0.9607844, b: 0.87843144, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -879,7 +879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Level: 0
-  Love: 0
+  Love: -0.63
   MaxLove: 0
   DollTargetCount: 10
   HeadReference: {fileID: 1511621268869484}
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09207394, g: 0.85505176, b: 0.9632353, a: 1}
+  m_Color: {r: 0.6156863, g: 0.23529413, b: 0.43137258, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
