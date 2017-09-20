@@ -271,6 +271,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7995d28eae54cf49acbf0153d4cac46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ManaEffectPrefab: {fileID: 1372616718984658, guid: 4954b758b54a1614f82d7f66d727c8ee,
+    type: 2}
+  CuredEffectPrefab: {fileID: 1372616718984658, guid: b9369441e72d784438023b2b92647bd6,
+    type: 2}
   CuredDolls: 0
   Level: 0
   Mana: 0
