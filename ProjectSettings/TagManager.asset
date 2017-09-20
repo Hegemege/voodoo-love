@@ -8,6 +8,8 @@ TagManager:
   - DollTarget
   - DollHead
   - LoveMeterSeeker
+  - CuredAmountSeeker
+  - ManaAmountSeeker
   layers:
   - Default
   - TransparentFX
@@ -47,6 +49,9 @@ TagManager:
     locked: 0
   - name: DollCanvas
     uniqueID: 2989006499
+    locked: 0
+  - name: FrontUI
+    uniqueID: 580116851
     locked: 0
   - name: Particles
     uniqueID: 693670215

@@ -283,4 +283,7 @@ MonoBehaviour:
   DollFinishedClip: {fileID: 8300000, guid: b34fd8a420cf74efb8505a2aa679e6e6, type: 3}
   NewDollClip: {fileID: 8300000, guid: 22cfa393346984706b78332f952a9f6c, type: 3}
   DollPrefab: {fileID: 1592466117933918, guid: c8c1f958eeb0a7644aa7a87ec27bfaaf, type: 2}
+  WoundUpgradeable: 0
+  MagnetUpgradeable: 0
+  FeatherUpgradeable: 0
   CurrentDoll: {fileID: 0}

@@ -23,6 +23,10 @@ public class GameController : MonoBehaviour
 
     public GameObject DollPrefab;
 
+    public bool WoundUpgradeable;
+    public bool MagnetUpgradeable;
+    public bool FeatherUpgradeable;
+
     [HideInInspector]
     public DollController CurrentDoll;
 
