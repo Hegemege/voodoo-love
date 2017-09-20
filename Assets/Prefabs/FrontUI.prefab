@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 222734267398859280}
   - component: {fileID: 114175790148237492}
   - component: {fileID: 114607010236341290}
-  - component: {fileID: 114075429436560054}
   - component: {fileID: 114956710151720874}
   m_Layer: 5
   m_Name: WoundAmountText
@@ -113,7 +112,6 @@ GameObject:
   - component: {fileID: 222362225252043442}
   - component: {fileID: 114080138575591886}
   - component: {fileID: 114177554175511360}
-  - component: {fileID: 114185662823483720}
   - component: {fileID: 114960782859376740}
   m_Layer: 5
   m_Name: MagnetAmountText
@@ -205,7 +203,6 @@ GameObject:
   - component: {fileID: 222156182516000426}
   - component: {fileID: 114746312092680278}
   - component: {fileID: 114116364836628358}
-  - component: {fileID: 114080937666159544}
   - component: {fileID: 114491778567365484}
   m_Layer: 5
   m_Name: FeatherAmountText
@@ -243,7 +240,6 @@ GameObject:
   - component: {fileID: 222998934697032176}
   - component: {fileID: 114076937862855816}
   - component: {fileID: 114312418739726030}
-  - component: {fileID: 114659991796534644}
   - component: {fileID: 114190341728143516}
   m_Layer: 5
   m_Name: MagnetPriceText
@@ -263,7 +259,6 @@ GameObject:
   - component: {fileID: 222611935719997384}
   - component: {fileID: 114738099532964774}
   - component: {fileID: 114901914920531192}
-  - component: {fileID: 114868245989798506}
   - component: {fileID: 114970375304412278}
   m_Layer: 5
   m_Name: FeatherPriceText
@@ -283,7 +278,6 @@ GameObject:
   - component: {fileID: 222711310452934872}
   - component: {fileID: 114100461959509670}
   - component: {fileID: 114131688208217148}
-  - component: {fileID: 114239197855257486}
   - component: {fileID: 114662806428446918}
   m_Layer: 5
   m_Name: WoundPriceText
@@ -356,17 +350,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114075429436560054
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1275634963590518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f43673d45c04d8ba302436856eb6392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114076937862855816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -433,17 +416,6 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: x2
---- !u!114 &114080937666159544
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1680184888628112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f43673d45c04d8ba302436856eb6392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114100461959509670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -647,17 +619,6 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 1, b: 1, a: 0.628}
   m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 0
---- !u!114 &114185662823483720
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1370263393459048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f43673d45c04d8ba302436856eb6392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114190341728143516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -700,17 +661,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
---- !u!114 &114239197855257486
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893122657654756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f43673d45c04d8ba302436856eb6392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114272895260572200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -850,7 +800,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114776399529396882}
         m_MethodName: OnMagnetClick
         m_Mode: 1
         m_Arguments:
@@ -916,7 +866,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114776399529396882}
         m_MethodName: OnFeatherClick
         m_Mode: 1
         m_Arguments:
@@ -1033,17 +983,6 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 1, b: 1, a: 0.628}
   m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 0
---- !u!114 &114659991796534644
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1811633895421178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f43673d45c04d8ba302436856eb6392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114662806428446918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1215,7 +1154,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114776399529396882}
         m_MethodName: OnWoundClick
         m_Mode: 1
         m_Arguments:
@@ -1228,17 +1167,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114868245989798506
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1880229601734648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f43673d45c04d8ba302436856eb6392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114901914920531192
 MonoBehaviour:
   m_ObjectHideFlags: 1

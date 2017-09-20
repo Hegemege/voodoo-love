@@ -37,6 +37,15 @@ public class UIController : MonoBehaviour
         MagnetUp.SetActive(GameController.instance.MagnetUpgradeable);
         WoundUp.SetActive(GameController.instance.WoundUpgradeable);
         FeatherUp.SetActive(GameController.instance.FeatherUpgradeable);
+
+        MagnetPriceText.text = TextHelper.FormatText(GameController.instance.MagnetPurchaseCost);
+        MagnetAmountText.text = GameController.instance.MagnetAmount.ToString();
+
+        FeatherPriceText.text = TextHelper.FormatText(GameController.instance.FeatherPurchaseCost);
+        FeatherAmountText.text = GameController.instance.FeatherAmount.ToString();
+
+        WoundPriceText.text = TextHelper.FormatText(GameController.instance.WoundPurchaseCost);
+        WoundAmountText.text = GameController.instance.WoundAmount.ToString();
     }
 
     public void OnWoundClick()
