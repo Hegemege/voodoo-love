@@ -17,11 +17,12 @@ public class DollHealthBar : MonoBehaviour
 
     void Start()
     {
-        slider.maxValue = Doll.MaxLove;
+        
     }
 
     void Update()
     {
+        slider.maxValue = Doll.MaxLove;
         slider.value = Doll.Love;
     }
     

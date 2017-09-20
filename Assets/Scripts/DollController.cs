@@ -35,12 +35,15 @@ public class DollController : MonoBehaviour
     {
         sr = GetComponentInChildren<SpriteRenderer>();
 
-        Level = Random.Range(1, 3); // TODO: Calculate level by player progress
-        MaxLove = Math.Abs(Level) + 1 * 100f;
-        Love = Random.Range(0.25f, 0.75f) * MaxLove;
-
         dollTargets = new List<DollTargetController>();
-        
+    }
+
+    public void Initialize()
+    {
+        Level = GameController.instance.Level;
+        MaxLove = Mathf.Exp((Math.Abs(Level) + 5) / 3f);
+        Love = Random.Range(0.05f, 0.1f) * MaxLove;
+
         GenerateDollTargets();
     }
 
@@ -80,7 +83,7 @@ public class DollController : MonoBehaviour
         // Updates all game state variables (love etc)
         if (Dead || Finished) return;
 
-        Love += GameController.instance.LovePerSecond * Time.deltaTime;
+        //Love += GameController.instance.LovePerSecond * Time.deltaTime;
 
         if (Love > MaxLove)
         {
@@ -149,36 +152,20 @@ public class DollController : MonoBehaviour
 
                         if (hit.collider.CompareTag("DollTarget"))
                         {
-                            Love += hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Tap(GameController.instance.LovePerTap);
+                            Love += hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Tap();
 
                             return;
                         }
                         else
                         {
                             // Tap anywhere to gain some love
-                            Love += GameController.instance.LovePerTap * GameController.instance.TapHealthyFactor;
+                            Love += GameController.instance.GeneralDamage * GameController.instance.TapHealthyFactor;
 
                             var effects = Instantiate(ClickingEffectPrefab);
                             effects.transform.position = new Vector3(touchCoords.x, touchCoords.y, 0f);
                         }
 
 
-                    }
-                    break;
-                case TouchPhase.Moved:
-                    if (hit.collider != null)
-                    {
-                        if (!hit.collider.CompareTag("Doll") && !hit.collider.CompareTag("DollHead") && !hit.collider.CompareTag("DollTarget")) break;
-
-                        if (hit.collider.CompareTag("DollTarget"))
-                        {
-                            Love += hit.collider.transform.parent.parent.GetComponent<DollTargetController>().Drag();
-                        }
-                        else
-                        {
-                            // Tap anywhere to gain some love
-                            Love += GameController.instance.LovePerSecond * Time.deltaTime * GameController.instance.TapHealthyFactor;
-                        }
                     }
                     break;
             }
@@ -253,6 +240,8 @@ public class DollController : MonoBehaviour
 
             var randomType = choices[Random.Range(0, choices.Count)];
             targetController.Type = randomType;
+
+            targetController.MaxHealth = MaxLove / 6f;
 
             targetController.Initialize();
 
