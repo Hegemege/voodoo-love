@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114231420986997814}
   m_Layer: 5
   m_Name: CuredText
-  m_TagString: CuredAmountSeeker
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 114211316009001876}
   m_Layer: 5
   m_Name: ManaText
-  m_TagString: ManaAmountSeeker
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -850,7 +850,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114776399529396882}
+      - m_Target: {fileID: 0}
         m_MethodName: OnMagnetClick
         m_Mode: 1
         m_Arguments:
@@ -916,7 +916,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114776399529396882}
+      - m_Target: {fileID: 0}
         m_MethodName: OnFeatherClick
         m_Mode: 1
         m_Arguments:
@@ -1215,7 +1215,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114776399529396882}
+      - m_Target: {fileID: 0}
         m_MethodName: OnWoundClick
         m_Mode: 1
         m_Arguments:
