@@ -55,14 +55,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  TargetTagName: CuredAmountSeeker
+  TargetTagName: Player
   Speed: 10
   SpeedOverTime:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
-      value: 0
+      time: -0.020832062
+      value: 0.5375061
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -94,7 +94,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372616718984658}
   serializedVersion: 5
-  lengthInSec: 2
+  lengthInSec: 3
   simulationSpeed: 1
   looping: 0
   prewarm: 0
@@ -153,7 +153,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
