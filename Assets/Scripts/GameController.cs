@@ -7,6 +7,9 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public static GameController instance = null; // Singleton
 
+    public GameObject ManaEffectPrefab;
+    public GameObject CuredEffectPrefab;
+    
     public int CuredDolls;
     public int Level;
     public float Mana;
@@ -92,6 +95,11 @@ public class GameController : MonoBehaviour
         var soundEffect = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
         soundEffect.clip = DollFinishedClip;
         soundEffect.Play();
+        
+        // Spawn particle effects
+        Instantiate(ManaEffectPrefab, transform.position, transform.rotation);
+        Instantiate(CuredEffectPrefab, transform.position, transform.rotation);
+        
         Destroy(soundEffect.gameObject, 3f);
     }
 
