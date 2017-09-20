@@ -44,8 +44,6 @@ public class DollController : MonoBehaviour
         MaxLove = Mathf.Exp((Math.Abs(Level) + 5) / 3f);
         Love = Random.Range(0.05f, 0.1f) * MaxLove;
 
-        print(Level + "  " + MaxLove + " " + Love);
-
         GenerateDollTargets();
     }
 
@@ -243,7 +241,7 @@ public class DollController : MonoBehaviour
             var randomType = choices[Random.Range(0, choices.Count)];
             targetController.Type = randomType;
 
-            targetController.MaxHealth = MaxLove / 10f;
+            targetController.MaxHealth = MaxLove / 6f;
 
             targetController.Initialize();
 
