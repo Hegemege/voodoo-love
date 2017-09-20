@@ -19,6 +19,9 @@ public class UIController : MonoBehaviour
     public Text ManaAmount;
     public Text DollAmount;
 
+    public GameObject AudioPlayerPrefab;
+    public AudioClip PurchaseClip;
+
     void Awake() 
     {
         
@@ -38,16 +41,37 @@ public class UIController : MonoBehaviour
 
     public void OnWoundClick()
     {
-        
+        if (GameController.instance.WoundUpgradeable)
+        {
+            GameController.instance.WoundUpgraded();
+            PlayPurchase();
+        }
     }
 
     public void OnMagnetClick()
     {
-        
+        if (GameController.instance.MagnetUpgradeable)
+        {
+            GameController.instance.MagnetUpgraded();
+            PlayPurchase();
+        }
     }
 
     public void OnFeatherClick()
     {
-        
+        if (GameController.instance.FeatherUpgradeable)
+        {
+            GameController.instance.FeatherUpgraded();
+            PlayPurchase();
+        }
+    }
+
+    private void PlayPurchase()
+    {
+        var soundObject = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
+        soundObject.clip = PurchaseClip;
+        soundObject.Play();
+
+        Destroy(soundObject.gameObject, 2f);
     }
 }
