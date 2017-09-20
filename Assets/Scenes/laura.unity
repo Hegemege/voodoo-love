@@ -238,6 +238,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9688df47bd4af0a4fa74836d45d81100, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &171815155
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4277742225780498, guid: cf5f07079fcb13d4fa9a1f165aa9f1ab, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277742225780498, guid: cf5f07079fcb13d4fa9a1f165aa9f1ab, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277742225780498, guid: cf5f07079fcb13d4fa9a1f165aa9f1ab, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277742225780498, guid: cf5f07079fcb13d4fa9a1f165aa9f1ab, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277742225780498, guid: cf5f07079fcb13d4fa9a1f165aa9f1ab, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277742225780498, guid: cf5f07079fcb13d4fa9a1f165aa9f1ab, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277742225780498, guid: cf5f07079fcb13d4fa9a1f165aa9f1ab, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277742225780498, guid: cf5f07079fcb13d4fa9a1f165aa9f1ab, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: cf5f07079fcb13d4fa9a1f165aa9f1ab, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &251523992
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +699,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1524314625
+  randomSeed: -6818520
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4086,12 +4128,12 @@ Prefab:
     - target: {fileID: 224576713168633004, guid: c8c1f958eeb0a7644aa7a87ec27bfaaf,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224576713168633004, guid: c8c1f958eeb0a7644aa7a87ec27bfaaf,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8c1f958eeb0a7644aa7a87ec27bfaaf, type: 2}
