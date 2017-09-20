@@ -3827,6 +3827,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 95842451954698888, guid: c8c1f958eeb0a7644aa7a87ec27bfaaf,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c74d6d0154d094ccaaa552bfac601119, type: 2}
     - target: {fileID: 223707940173987266, guid: c8c1f958eeb0a7644aa7a87ec27bfaaf,
         type: 2}
       propertyPath: m_Camera
@@ -3835,12 +3840,12 @@ Prefab:
     - target: {fileID: 224576713168633004, guid: c8c1f958eeb0a7644aa7a87ec27bfaaf,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224576713168633004, guid: c8c1f958eeb0a7644aa7a87ec27bfaaf,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8c1f958eeb0a7644aa7a87ec27bfaaf, type: 2}
