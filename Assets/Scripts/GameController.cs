@@ -17,6 +17,10 @@ public class GameController : MonoBehaviour
 
     public float TapHealthyFactor;
 
+    public GameObject AudioPlayerPrefab;
+    public AudioClip DollFinishedClip;
+    public AudioClip NewDollClip;
+
     [HideInInspector]
     public DollController CurrentDoll;
 
@@ -77,6 +81,25 @@ public class GameController : MonoBehaviour
     public void DollFinished()
     {
         Debug.Log("Doll has been finished");
+
+        
+
+        // Spawn audio effect
+        var soundEffect = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
+        soundEffect.clip = DollFinishedClip;
+        soundEffect.Play();
+        Destroy(soundEffect.gameObject, 3f);
+    }
+
+    private void NewDoll()
+    {
+
+
+        // Spawn audio effect
+        var soundEffect = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
+        soundEffect.clip = NewDollClip;
+        soundEffect.Play();
+        Destroy(soundEffect.gameObject, 3f);
     }
 
     public void DollFailed()

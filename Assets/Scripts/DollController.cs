@@ -115,7 +115,7 @@ public class DollController : MonoBehaviour
         {
             foreach (var target in dollTargets)
             {
-                Love += target.Release();
+                target.Release();
             }
         }
 
@@ -218,8 +218,6 @@ public class DollController : MonoBehaviour
             newTarget.transform.position = new Vector3(randomCoords.x, randomCoords.y, transform.position.z - 0.05f);
 
             var targetController = newTarget.GetComponent<DollTargetController>();
-            // TODO; proper values
-            targetController.Type = DollTargetType.Wound;
 
             List<DollTargetType> choices;
 

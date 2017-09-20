@@ -23,8 +23,20 @@ public class DollTargetController : MonoBehaviour
     public List<Sprite> DirtSprites;
     public List<Sprite> CrackSprites;
 
-    public GameObject ParticleEffectPrefab;
-    private ParticleSystem activateParticleEffects;
+    public AudioClip WoundDamageClip;
+    public AudioClip WoundHealClip;
+    public AudioClip CrackDamageClip;
+    public AudioClip CrackHealClip;
+    public AudioClip PinPullingClip;
+    public AudioClip PinOutClip;
+    public AudioClip DirtClip;
+
+    public GameObject AudioPlayerPrefab;
+
+    public GameObject DirtParticleEffectPrefab;
+    public GameObject PinParticleEffectPrefab;
+    public GameObject WoundParticleEffectPrefab;
+    public GameObject CrackParticleEffectPrefab;
 
     [Space(20)]
     public bool Healed;
@@ -40,14 +52,6 @@ public class DollTargetController : MonoBehaviour
     void Awake()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
-
-        if (ParticleEffectPrefab == null) return;
-
-        var effects = Instantiate(ParticleEffectPrefab);
-        effects.transform.parent = transform;
-
-        activateParticleEffects = effects.GetComponentInChildren<ParticleSystem>();
-
     }
 
     void Start() 
@@ -82,6 +86,33 @@ public class DollTargetController : MonoBehaviour
 
         if (Health > MaxHealth)
         {
+            if (!Healed && Type == DollTargetType.Pin)
+            {
+                var audioSource = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
+                audioSource.clip = PinOutClip;
+                audioSource.loop = false;
+                audioSource.Play();
+                Destroy(audioSource.gameObject, 2f);
+            }
+
+            if (!Healed && Type == DollTargetType.Wound)
+            {
+                var audioSource = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
+                audioSource.clip = WoundHealClip;
+                audioSource.loop = false;
+                audioSource.Play();
+                Destroy(audioSource.gameObject, 2f);
+            }
+
+            if (!Healed && Type == DollTargetType.Crack)
+            {
+                var audioSource = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
+                audioSource.clip = CrackHealClip;
+                audioSource.loop = false;
+                audioSource.Play();
+                Destroy(audioSource.gameObject, 2f);
+            }
+
             Health = MaxHealth;
             Healed = true;
 
@@ -128,18 +159,44 @@ public class DollTargetController : MonoBehaviour
         heldDownTimer = 0f;
         takenDPS = damage;
 
-        if (Type == DollTargetType.Crack || Type == DollTargetType.Wound)
+        AudioSource audioSource;
+
+        switch (Type)
         {
-            Health += damage;
-            return damage;
+            case DollTargetType.Crack:
+                audioSource = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
+                audioSource.clip = CrackDamageClip;
+                audioSource.loop = false;
+                audioSource.Play();
+                Destroy(audioSource.gameObject, 2f);
+                break;
+            case DollTargetType.Dirt:
+                audioSource = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
+                audioSource.clip = DirtClip;
+                audioSource.loop = false;
+                audioSource.Play();
+                Destroy(audioSource.gameObject, 2f);
+                break;
+            case DollTargetType.Pin:
+                audioSource = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
+                audioSource.clip = PinPullingClip;
+                audioSource.loop = false;
+                audioSource.Play();
+                Destroy(audioSource.gameObject, 2f);
+                break;
+            case DollTargetType.Wound:
+                audioSource = Instantiate(AudioPlayerPrefab).GetComponent<AudioSource>();
+                audioSource.clip = WoundDamageClip;
+                audioSource.loop = false;
+                audioSource.Play();
+                Destroy(audioSource.gameObject, 2f);
+                break;
         }
 
-        if (activateParticleEffects != null)
-        {
-            activateParticleEffects.Play();
-        }
+        TapEffects();
 
-        return 0f;
+        Health += damage;
+        return damage;
     }
 
     public float Drag()
@@ -154,13 +211,32 @@ public class DollTargetController : MonoBehaviour
         var toReturn = heldDownTimer * takenDPS;
         heldDownTimer = 0f;
 
-        if (Type == DollTargetType.Crack || Type == DollTargetType.Wound) return 0f;
+        return 0f;
+    }
 
-        if (activateParticleEffects != null)
+    private void TapEffects()
+    {
+        if (PinParticleEffectPrefab != null && DirtParticleEffectPrefab != null && WoundParticleEffectPrefab != null && CrackParticleEffectPrefab != null)
         {
-            activateParticleEffects.Stop();
-        }
+            GameObject effects;
+            if (Type == DollTargetType.Dirt)
+            {
+                effects = Instantiate(DirtParticleEffectPrefab);
+            }
+            else if (Type == DollTargetType.Crack)
+            {
+                effects = Instantiate(CrackParticleEffectPrefab);
+            }
+            else if (Type == DollTargetType.Pin)
+            {
+                effects = Instantiate(PinParticleEffectPrefab);
+            }
+            else
+            {
+                effects = Instantiate(WoundParticleEffectPrefab);
+            }
 
-        return toReturn;
+            effects.transform.position = transform.position;
+        }
     }
 }

@@ -121,6 +121,23 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2d9651d2d950446b1997c5aaf0009989, type: 3}
   CrackSprites:
   - {fileID: 21300000, guid: d66aeba6be32545768727c66757159f8, type: 3}
+  WoundDamageClip: {fileID: 0}
+  WoundHealClip: {fileID: 8300000, guid: 2eeb2a9e8a427415c89a6d6f1e596f2d, type: 3}
+  CrackDamageClip: {fileID: 0}
+  CrackHealClip: {fileID: 8300000, guid: b2bce04f1ef074db5bc50f6a82802a61, type: 3}
+  PinPullingClip: {fileID: 8300000, guid: 4ebabd9fa90d6492e958480f43e0c95c, type: 3}
+  PinOutClip: {fileID: 8300000, guid: 2bc5f83b782b44365ba11c91afceebb5, type: 3}
+  DirtClip: {fileID: 8300000, guid: 0d2bdb736a9b24f73a5132620c19f8d5, type: 3}
+  AudioPlayerPrefab: {fileID: 1401753452069112, guid: 1d54fd92605ac334e8fcb6d4ebe2ae61,
+    type: 2}
+  DirtParticleEffectPrefab: {fileID: 1914899681616108, guid: b33740aba349e43cf825ae64c1066454,
+    type: 2}
+  PinParticleEffectPrefab: {fileID: 1914899681616108, guid: b33740aba349e43cf825ae64c1066454,
+    type: 2}
+  WoundParticleEffectPrefab: {fileID: 1914899681616108, guid: b33740aba349e43cf825ae64c1066454,
+    type: 2}
+  CrackParticleEffectPrefab: {fileID: 1914899681616108, guid: b33740aba349e43cf825ae64c1066454,
+    type: 2}
   Healed: 0
 --- !u!212 &212253885804999886
 SpriteRenderer:
