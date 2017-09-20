@@ -7,10 +7,12 @@ public class DollHealthBar : MonoBehaviour
     public DollController Doll;
     
     Slider slider;
+    Animator anim;
 
     void Awake()
     {
         slider = GetComponent<Slider>();
+        anim = GetComponent<Animator>();
     }
 
     void Start()
@@ -25,6 +27,7 @@ public class DollHealthBar : MonoBehaviour
     
     void OnParticleCollision(GameObject other)
     {
-        
+        Destroy(other);
+        anim.SetTrigger("Hit");
     }
 }

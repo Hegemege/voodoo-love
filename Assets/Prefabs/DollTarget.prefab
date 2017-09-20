@@ -130,13 +130,13 @@ MonoBehaviour:
   DirtClip: {fileID: 8300000, guid: 0d2bdb736a9b24f73a5132620c19f8d5, type: 3}
   AudioPlayerPrefab: {fileID: 1401753452069112, guid: 1d54fd92605ac334e8fcb6d4ebe2ae61,
     type: 2}
-  DirtParticleEffectPrefab: {fileID: 1914899681616108, guid: b33740aba349e43cf825ae64c1066454,
+  DirtParticleEffectPrefab: {fileID: 1659548787552652, guid: 9688df47bd4af0a4fa74836d45d81100,
     type: 2}
-  PinParticleEffectPrefab: {fileID: 1914899681616108, guid: b33740aba349e43cf825ae64c1066454,
+  PinParticleEffectPrefab: {fileID: 1819908713035466, guid: 789cb7c440b49a84ab93a065ef24f366,
     type: 2}
-  WoundParticleEffectPrefab: {fileID: 1914899681616108, guid: b33740aba349e43cf825ae64c1066454,
+  WoundParticleEffectPrefab: {fileID: 1392143498250704, guid: cf5f07079fcb13d4fa9a1f165aa9f1ab,
     type: 2}
-  CrackParticleEffectPrefab: {fileID: 1914899681616108, guid: b33740aba349e43cf825ae64c1066454,
+  CrackParticleEffectPrefab: {fileID: 1825918434880808, guid: a4d7b99569e0a0b429f59f557b5cbf2c,
     type: 2}
   Healed: 0
 --- !u!212 &212253885804999886

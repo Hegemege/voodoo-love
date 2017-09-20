@@ -33,7 +33,9 @@ public class ParticleMover : MonoBehaviour
     {
         var normalizedTime = (Time.time - startTime) / duration;
         var step = Speed * SpeedOverTime.Evaluate(normalizedTime) * Time.deltaTime;
-        
+
+        if (Target == null) return;
+
         numParticlesAlive = ps.GetParticles(particles);
         for (var i = 0; i < numParticlesAlive; i++)
             particles[i].position = Vector3.MoveTowards(particles[i].position, Target.position, step);

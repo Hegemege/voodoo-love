@@ -24,6 +24,9 @@ public class DollController : MonoBehaviour
     public bool Dead;
     public bool Finished;
 
+    public bool MoveAway;
+    public bool MoveIn;
+
     // Privates
     private SpriteRenderer sr;
     private List<DollTargetController> dollTargets;
@@ -55,7 +58,21 @@ public class DollController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (MoveAway)
+        {
+            transform.Translate(new Vector3(-10f, 0f, 0f) * Time.fixedDeltaTime);
+            // TODO: Add smoother movement anim
+        }
 
+        if (MoveIn)
+        {
+            transform.Translate(new Vector3(-10f, 0f, 0f) * Time.fixedDeltaTime);
+
+            if (transform.position.x < 0)
+            {
+                MoveIn = false;
+            }
+        }
     }
 
     private void UpdateState()
