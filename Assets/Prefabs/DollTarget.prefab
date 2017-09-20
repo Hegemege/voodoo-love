@@ -132,11 +132,11 @@ MonoBehaviour:
     type: 2}
   DirtParticleEffectPrefab: {fileID: 1659548787552652, guid: 9688df47bd4af0a4fa74836d45d81100,
     type: 2}
-  PinParticleEffectPrefab: {fileID: 1819908713035466, guid: 789cb7c440b49a84ab93a065ef24f366,
+  PinParticleEffectPrefab: {fileID: 1659548787552652, guid: 3fdaf48d71967477b90e8a8af441ba9b,
     type: 2}
   WoundParticleEffectPrefab: {fileID: 1392143498250704, guid: cf5f07079fcb13d4fa9a1f165aa9f1ab,
     type: 2}
-  CrackParticleEffectPrefab: {fileID: 1825918434880808, guid: a4d7b99569e0a0b429f59f557b5cbf2c,
+  CrackParticleEffectPrefab: {fileID: 1392143498250704, guid: 2d5e6bcc818254105a4f88b31cfe98ef,
     type: 2}
   Healed: 0
 --- !u!212 &212253885804999886
